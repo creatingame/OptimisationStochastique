@@ -29,7 +29,6 @@ import java.awt.Color;
 import java.awt.Canvas;
 import javax.swing.JButton;
 
-
 public class TestWindow {
 
 	private JFrame frmProblmeDuVoyager;
@@ -61,7 +60,7 @@ public class TestWindow {
 		data1.outputInfo();
 		canvas.setCoordinate(data1.getCoordinate());
 		canvas.setProportion(data1.getProportion());
-		
+
 	}
 
 	/**
@@ -117,17 +116,12 @@ public class TestWindow {
 		frmProblmeDuVoyager.getContentPane().add(panel);
 		panel.setLayout(new GridLayout(numParametre, 2, 10, 10));
 
-		
-		
 		canvas = new MyPanel();
 		canvas.setBackground(Color.WHITE);
 		canvas.setBounds(297, 41, 750, 500);
 		canvas.setVisible(true);
 		canvas.setFocusable(false);
 		frmProblmeDuVoyager.getContentPane().add(canvas);
-
-		
-		
 
 		JLabel lblGraphe = new JLabel("Graphe");
 		lblGraphe.setLabelFor(canvas);
@@ -154,8 +148,6 @@ public class TestWindow {
 			jtfName.setSize(10, 5);
 			panel.add(jtfName);
 		}
-		
-		//frmProblmeDuVoyager.getContentPane().add(new DrawLine());
 
 	}
 

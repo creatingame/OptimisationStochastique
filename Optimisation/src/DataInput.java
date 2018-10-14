@@ -1,8 +1,5 @@
 import java.util.*;
 import java.io.*;
-import java.awt.Canvas;
-import java.awt.Color;
-import java.awt.Graphics;
 
 public class DataInput {
 	private double xMax;
@@ -91,7 +88,7 @@ public class DataInput {
 	public double getyMin() {
 		return yMin;
 	}
-	
+
 	public double getProportion() {
 		if ((xMax - xMin) > (710 / 480 * (yMax - yMin)))
 			proportion = 710 / (xMax - xMin);
@@ -99,6 +96,5 @@ public class DataInput {
 			proportion = 480 / (yMax - yMin);
 		return proportion;
 	}
-	
 
 }
