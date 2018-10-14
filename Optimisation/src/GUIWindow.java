@@ -29,10 +29,14 @@ import java.awt.Color;
 import java.awt.Canvas;
 import javax.swing.JButton;
 
-public class TestWindow {
+public class GUIWindow {
 
 	private JFrame frmProblmeDuVoyager;
 	private MyPanel canvas;
+	private DataInput data;
+	private int numbreSommets;
+	private double longeurOptimal;
+	
 
 	/**
 	 * Launch the application.
@@ -41,7 +45,7 @@ public class TestWindow {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TestWindow window = new TestWindow();
+					GUIWindow window = new GUIWindow();
 					window.frmProblmeDuVoyager.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -53,14 +57,15 @@ public class TestWindow {
 	/**
 	 * Create the application.
 	 */
-	public TestWindow() {
+	public GUIWindow() {
+		numbreSommets = 280;
+		longeurOptimal = 23154.12;
+		data = new DataInput(
+				"C:\\Users\\vince\\Documents\\eclipse-workspace\\CoodinateResult\\src\\a280-result.tsp",numbreSommets);
+		data.outputInfo();
 		initialize();
-		DataInput data1 = new DataInput(
-				"C:\\Users\\vince\\Documents\\eclipse-workspace\\CoodinateResult\\src\\a280-result.tsp");
-		data1.outputInfo();
-		canvas.setCoordinate(data1.getCoordinate());
-		canvas.setProportion(data1.getProportion());
-
+		canvas.setCoordinate(data.getCoordinate());
+		canvas.setProportion(data.getProportion());
 	}
 
 	/**
@@ -141,6 +146,16 @@ public class TestWindow {
 		JLabel lblLongeurOptimalTrouv = new JLabel("Longeur optimal trouv\u00E9:");
 		lblLongeurOptimalTrouv.setBounds(297, 568, 141, 16);
 		frmProblmeDuVoyager.getContentPane().add(lblLongeurOptimalTrouv);
+		
+		JLabel lblNewLabel_3 = new JLabel(""+ numbreSommets);
+		lblNewLabel_1.setLabelFor(lblNewLabel_3);
+		lblNewLabel_3.setBounds(475, 551, 47, 16);
+		frmProblmeDuVoyager.getContentPane().add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_4 = new JLabel(""+ longeurOptimal);
+		lblLongeurOptimalTrouv.setLabelFor(lblNewLabel_4);
+		lblNewLabel_4.setBounds(475, 568, 62, 16);
+		frmProblmeDuVoyager.getContentPane().add(lblNewLabel_4);
 
 		for (int i = 0; i < numParametre; i++) {
 			panel.add(new JLabel("Parametre " + (i + 1)));
@@ -150,5 +165,4 @@ public class TestWindow {
 		}
 
 	}
-
 }

@@ -4,22 +4,22 @@ import javax.swing.JPanel;
 
 class MyPanel extends JPanel {
 
-	private double[][] coordinate;
+	private double[][] coordinateData;
 	private double proportion;
 
-	public MyPanel(double[][] coordinate1, double proportion1) {
-		this.coordinate = coordinate1;
+	public MyPanel(double[][] coordinateData1, double proportion1) {
+		this.coordinateData = coordinateData1;
 		this.proportion = proportion1;
 	}
 
 	public MyPanel() {
-		this.coordinate = new double[0][3];
+		this.coordinateData = new double[0][3];
 		proportion = 1;
 
 	}
 
 	public void setCoordinate(double[][] coordinate1) {
-		this.coordinate = coordinate1;
+		this.coordinateData = coordinate1;
 	}
 
 	public void setProportion(double proportion1) {
@@ -32,9 +32,9 @@ class MyPanel extends JPanel {
 
 		g.setColor(Color.RED);
 
-		for (int i = 1; i < coordinate.length; i++) {
-			g.drawLine((int) (coordinate[i - 1][1] * proportion), (int) (coordinate[i - 1][2] * proportion),
-					(int) (coordinate[i][1] * proportion), (int) (coordinate[i][2] * proportion));
+		for (int i = 1; i < coordinateData.length; i++) {
+			g.drawLine((int) (coordinateData[i - 1][1] * proportion), (int) (coordinateData[i - 1][2] * proportion),
+					(int) (coordinateData[i][1] * proportion), (int) (coordinateData[i][2] * proportion));
 		}
 
 		/*

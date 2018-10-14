@@ -6,19 +6,20 @@ public class DataInput {
 	private double xMin;
 	private double yMax;
 	private double yMin;
-	private int dimension = 280;
-	private int readDimension;
-	private double[][] coordinate;
+	private int numbreSommets;
+	private int numbreSommetsTrouve;
+	private double[][] coordinateData;
 	private double proportion;
 
 	private String fileAddress = "C:\\Users\\vince\\Documents\\eclipse-workspace\\CoodinateResult\\src\\a280-result.tsp";
 
-	public DataInput(String fileAddress1) {
+	public DataInput(String fileAddress1, int numbreSommets1) {
 		this.fileAddress = fileAddress1;
 		try {
 
 			Scanner scan = new Scanner(new File(fileAddress));
-			coordinate = new double[dimension][3];
+			numbreSommets = numbreSommets1;
+			coordinateData = new double[numbreSommets][3];
 			int i = 0;
 			int j = 0;
 			double n = 0;
@@ -46,14 +47,14 @@ public class DataInput {
 				if (yMin == -1 || m < yMin)
 					yMin = m;
 
-				coordinate[i][0] = j;
-				coordinate[i][1] = n;
-				coordinate[i][2] = m;
+				coordinateData[i][0] = j;
+				coordinateData[i][1] = n;
+				coordinateData[i][2] = m;
 
 				i++;
 
 			}
-			readDimension = i;
+			numbreSommetsTrouve = i;
 			scan.close();
 
 		} catch (IOException e) {
@@ -62,7 +63,7 @@ public class DataInput {
 	}
 
 	public void outputInfo() {
-		System.out.println("Dimension:" + readDimension);
+		System.out.println("Dimension:" + numbreSommetsTrouve);
 		System.out.println("xMin:" + xMin);
 		System.out.println("xMax:" + xMax);
 		System.out.println("yMin:" + yMin);
@@ -70,7 +71,7 @@ public class DataInput {
 	}
 
 	public double[][] getCoordinate() {
-		return coordinate;
+		return coordinateData;
 	}
 
 	public double getxMax() {
