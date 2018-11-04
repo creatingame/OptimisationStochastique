@@ -33,9 +33,15 @@ class MyPanel extends JPanel {
 		g.setColor(Color.RED);
 
 		for (int i = 1; i < coordinateData.length; i++) {
+			g.drawOval((int) (coordinateData[i - 1][1] * proportion) - 1,
+					(int) (coordinateData[i - 1][2] * proportion) - 1, 2, 2);
 			g.drawLine((int) (coordinateData[i - 1][1] * proportion), (int) (coordinateData[i - 1][2] * proportion),
 					(int) (coordinateData[i][1] * proportion), (int) (coordinateData[i][2] * proportion));
 		}
+		g.drawOval((int) (coordinateData[coordinateData.length-1][1] * proportion) - 1,
+				(int) (coordinateData[coordinateData.length-1][2] * proportion) - 1, 2, 2);
+		g.drawLine((int) (coordinateData[coordinateData.length-1][1] * proportion), (int) (coordinateData[coordinateData.length-1][2] * proportion),
+				(int) (coordinateData[0][1] * proportion), (int) (coordinateData[0][2] * proportion));
 
 		/*
 		 * for (int i = 0; i < 10; i++) { g.drawLine(10, 10 + i * 20, this.getWidth() -

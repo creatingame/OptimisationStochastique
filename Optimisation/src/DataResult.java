@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class DataInput {
+public class DataResult {
 	private double xMax;
 	private double xMin;
 	private double yMax;
@@ -11,9 +11,9 @@ public class DataInput {
 	private double[][] coordinateData;
 	private double proportion;
 
-	private String fileAddress = "C:\\Users\\vince\\Documents\\eclipse-workspace\\CoodinateResult\\src\\a280-result.tsp";
+	private String fileAddress;
 
-	public DataInput(String fileAddress1, int numbreSommets1) {
+	public DataResult(String fileAddress1, int numbreSommets1) {
 		this.fileAddress = fileAddress1;
 		try {
 
