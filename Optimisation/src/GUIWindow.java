@@ -32,6 +32,9 @@ import java.awt.Canvas;
 import javax.swing.JButton;
 
 import javax.swing.filechooser.FileNameExtensionFilter;
+
+import org.dom4j.DocumentException;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -43,7 +46,7 @@ public class GUIWindow {
 	private JFrame frmProblemeDuVoyager;
 	//private MyPanel canvas;
 	private CircuitPanel canvas;
-	private DataResult data; // The result of algorithm.
+	//private DataResult data; // The result of algorithm.
 	
 	JLabel lblNewLabel_3;
 	JLabel lblNewLabel_4;
@@ -82,15 +85,18 @@ public class GUIWindow {
 
 	/**
 	 * Create the application.
+	 * @throws DocumentException 
 	 */
-	public GUIWindow() {
+	public GUIWindow() throws DocumentException {
 
 		initialize();
 		//calcul();
 		//dataResultAddress = "C:\\Users\\vince\\Documents\\eclipse-workspace\\CoodinateResult\\src\\a280-result.tsp"; // The result of algorithm.
+		Data test = new Data("a280");
+		scenario = test.CoutToXY();
 		
-		numbreSommets = 280; // The result of algorithm.
-		longeurOptimal = 34671.12; // The result of algorithm.
+		//numbreSommets = 280; // The result of algorithm.
+		//longeurOptimal = 34671.12; // The result of algorithm.
 		//showSolution(dataResultAddress, numbreSommets, longeurOptimal);
 		showSolution(scenario);
 	}
@@ -305,7 +311,7 @@ public class GUIWindow {
 
 		lblNewLabel_4 = new JLabel("" + longeurOptimal);
 		lblLongeurOptimalTrouv.setLabelFor(lblNewLabel_4);
-		lblNewLabel_4.setBounds(475, 568, 62, 16);
+		lblNewLabel_4.setBounds(475, 568, 102, 16);
 		frmProblemeDuVoyager.getContentPane().add(lblNewLabel_4);
 
 	}
@@ -349,33 +355,6 @@ public class GUIWindow {
 			dataAddress = file.getAbsolutePath();
 			System.out.println("AbsolutePath: " + dataAddress);
 		}
-	}
-
-	private void showSolution(String dataResultAddress1, int numbreSommets1, double longeurOptimal1) {
-		/**
-		 * 1) numbreSommets must be haven by Manager. 2) longeurOptimal must be haven by
-		 * Algorithm.
-		 */
-		dataResultAddress = dataResultAddress1;
-		numbreSommets = numbreSommets1; // numbreSommets must be haven by Manager.
-		longeurOptimal = longeurOptimal1; // longeurOptimal must be haven by Algorithm.
-		
-		/**
-		 * 1) The 1st parameter of DataResult data is the document of the result of
-		 * algorithm. We use
-		 * "C:\\Users\\vince\\Documents\\eclipse-workspace\\CoodinateResult\\src\\a280-result.tsp"
-		 * for example. 2) data.outputInfo() is just for checking the data information
-		 * in the console. It can be deleted.
-		 */
-		data = new DataResult("C:\\Users\\vince\\Documents\\eclipse-workspace\\CoodinateResult\\src\\a280-result.tsp", numbreSommets); // Address of result must be haven by Algorithm.
-		data.outputInfo();
-
-		canvas.setCoordinate(data.getCoordinate());
-		canvas.setProportion(data.getProportion());
-		
-		lblNewLabel_3.setText("" + numbreSommets);
-		lblNewLabel_4.setText("" + longeurOptimal);
-		
 	}
 	
 	private void showSolution(Circuit scenario) {
