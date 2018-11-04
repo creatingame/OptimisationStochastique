@@ -350,6 +350,7 @@ public class GUIWindow {
 			// File[] files = fileChooser.getSelectedFiles();
 
 			// msgTextArea.append("打开文件: " + file.getAbsolutePath() + "\n\n");
+			msgTextArea.removeAll();
 			msgTextArea.append(file.getName());
 
 			dataAddress = file.getAbsolutePath();
