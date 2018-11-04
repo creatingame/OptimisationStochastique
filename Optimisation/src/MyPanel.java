@@ -43,22 +43,5 @@ class MyPanel extends JPanel {
 		g.drawLine((int) (coordinateData[coordinateData.length - 1][1] * proportion),
 				(int) (coordinateData[coordinateData.length - 1][2] * proportion),
 				(int) (coordinateData[0][1] * proportion), (int) (coordinateData[0][2] * proportion));
-
-		/*
-		 * for (int i = 0; i < 10; i++) { g.drawLine(10, 10 + i * 20, this.getWidth() -
-		 * 10, 10 + i * 20); }
-		 * 
-		 * for (int i = 0; i < 10; i++) { g.drawLine(10 + i * 20, 10, 10 + i * 20,
-		 * this.getHeight() - 10); }
-		 */
-
 	}
-	/*
-	 * public static void main(String[] args) { JFrame f1 = new JFrame();
-	 * f1.setSize(400, 400); f1.setLocationRelativeTo(null);
-	 * f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	 * 
-	 * MyPanel panel = new MyPanel(); f1.add(panel, BorderLayout.CENTER);
-	 * f1.setVisible(true); }
-	 */
 }

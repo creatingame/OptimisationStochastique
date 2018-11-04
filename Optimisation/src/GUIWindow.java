@@ -41,7 +41,8 @@ import java.io.File;
 public class GUIWindow {
 
 	private JFrame frmProblemeDuVoyager;
-	private MyPanel canvas;
+	//private MyPanel canvas;
+	private CircuitPanel canvas;
 	private DataResult data; // The result of algorithm.
 	
 	JLabel lblNewLabel_3;
@@ -57,6 +58,8 @@ public class GUIWindow {
 	private static float variance;
 
 	private int numbreSommets; // numbreSommets must be haven by Manager.
+	
+	private Circuit scenario; //circult
 
 	private String dataResultAddress;
 	private double longeurOptimal; // The result of algorithm.
@@ -84,11 +87,14 @@ public class GUIWindow {
 
 		initialize();
 		//calcul();
-		dataResultAddress = "C:\\Users\\vince\\Documents\\eclipse-workspace\\CoodinateResult\\src\\a280-result.tsp"; // The result of algorithm.
+		//dataResultAddress = "C:\\Users\\vince\\Documents\\eclipse-workspace\\CoodinateResult\\src\\a280-result.tsp"; // The result of algorithm.
+		
 		numbreSommets = 280; // The result of algorithm.
 		longeurOptimal = 34671.12; // The result of algorithm.
-		showSolution(dataResultAddress, numbreSommets, longeurOptimal);
+		//showSolution(dataResultAddress, numbreSommets, longeurOptimal);
+		showSolution(scenario);
 	}
+
 
 	private void parametresDeterministre(JPanel panel, JTextField jtfName, JTextField jtfName1, JTextField jtfName2,
 			JTextField jtfName3) {
@@ -241,7 +247,8 @@ public class GUIWindow {
 		lblParamtre.setBounds(22, 198, 240, 19);
 		frmProblemeDuVoyager.getContentPane().add(lblParamtre);
 
-		canvas = new MyPanel();
+		//canvas = new MyPanel();
+		canvas = new CircuitPanel();
 		canvas.setBackground(Color.WHITE);
 		canvas.setBounds(297, 41, 750, 500);
 		canvas.setVisible(true);
@@ -369,5 +376,20 @@ public class GUIWindow {
 		lblNewLabel_3.setText("" + numbreSommets);
 		lblNewLabel_4.setText("" + longeurOptimal);
 		
+	}
+	
+	private void showSolution(Circuit scenario) {
+		// TODO Auto-generated method stub
+		
+		//data = new DataResult("C:\\Users\\vince\\Documents\\eclipse-workspace\\CoodinateResult\\src\\a280-result.tsp", numbreSommets); // Address of result must be haven by Algorithm.
+		//data.outputInfo();
+
+		//canvas.setCoordinate(data.getCoordinate());
+		//canvas.setProportion(data.getProportion());
+		
+		canvas.setVilles(scenario.getVilles());
+		
+		lblNewLabel_3.setText("" + scenario.getTaille());
+		lblNewLabel_4.setText("" + scenario.getCout());
 	}
 }
