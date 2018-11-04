@@ -33,7 +33,7 @@ class CircuitPanel extends JPanel {
 			if (villes[i].y < yMin)
 				yMin = villes[i].y;
 		}
-		if ((xMax - xMin) > (730 / 480 * (yMax - yMin)))
+		if ((xMax - xMin) > ((730.0 / 480.0) * (yMax - yMin)))
 			proportion = 730 / (xMax - xMin);
 		else
 			proportion = 480 / (yMax - yMin);
@@ -60,6 +60,17 @@ class CircuitPanel extends JPanel {
 		g.drawLine((int) ((villes[villes.length - 1].x - xMin) * proportion),
 				(int) ((villes[villes.length - 1].y - yMin) * proportion), (int) ((villes[0].x - xMin) * proportion),
 				(int) ((villes[0].y - yMin) * proportion));
+		
+		/*
+		System.out.println("xMin: " + xMin);
+		System.out.println("xMax: " + xMax);
+		System.out.println("yMin: " + yMin);
+		System.out.println("yMax: " + yMax);
+		System.out.println("proportion: " + proportion);
+		System.out.println("position xMax: " + ((xMax - xMin) * proportion) );
+		System.out.println("position yMax: " + ((yMax - yMin) * proportion) );
+		*/
+		
 		/*
 		 * for (int i = 1; i < coordinateData.length; i++) { g.drawOval((int)
 		 * (coordinateData[i - 1][1] * proportion) - 1, (int) (coordinateData[i - 1][2]

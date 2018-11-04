@@ -92,7 +92,7 @@ public class GUIWindow {
 		initialize();
 		//calcul();
 		//dataResultAddress = "C:\\Users\\vince\\Documents\\eclipse-workspace\\CoodinateResult\\src\\a280-result.tsp"; // The result of algorithm.
-		Data test = new Data("a280");
+		Data test = new Data("brazil58");
 		scenario = test.CoutToXY();
 		
 		//numbreSommets = 280; // The result of algorithm.
