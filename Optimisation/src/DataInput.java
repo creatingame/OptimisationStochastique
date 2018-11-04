@@ -64,6 +64,7 @@ public class DataInput {
 
 	public void outputInfo() {
 		System.out.println("Dimension:" + numbreSommetsTrouve);
+		numbreSommets = numbreSommetsTrouve;
 		System.out.println("xMin:" + xMin);
 		System.out.println("xMax:" + xMax);
 		System.out.println("yMin:" + yMin);
