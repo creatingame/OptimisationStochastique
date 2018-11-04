@@ -87,7 +87,7 @@ public class GUIWindow {
 		dataResultAddress = "C:\\Users\\vince\\Documents\\eclipse-workspace\\CoodinateResult\\src\\a280-result.tsp"; // The result of algorithm.
 		numbreSommets = 280; // The result of algorithm.
 		longeurOptimal = 34671.12; // The result of algorithm.
-		showSolution(dataResultAddress, numbreSommets, longeurOptimal, lblNewLabel_3, lblNewLabel_4);
+		showSolution(dataResultAddress, numbreSommets, longeurOptimal);
 	}
 
 	private void parametresDeterministre(JPanel panel, JTextField jtfName, JTextField jtfName1, JTextField jtfName2,
@@ -344,7 +344,7 @@ public class GUIWindow {
 		}
 	}
 
-	private void showSolution(String dataResultAddress1, int numbreSommets1, double longeurOptimal1, JLabel lblNewLabel_3, JLabel lblNewLabel_4) {
+	private void showSolution(String dataResultAddress1, int numbreSommets1, double longeurOptimal1) {
 		/**
 		 * 1) numbreSommets must be haven by Manager. 2) longeurOptimal must be haven by
 		 * Algorithm.
